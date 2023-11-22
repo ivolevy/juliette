@@ -1,25 +1,17 @@
-import logo from './images/boca.png';
-import './App.css';
-
-function App() {
+import logo from "./images/boca.png";
+import "./App.css";
+import "tailwindcss/tailwind.css";
+import Header from "./components/Header";
+import TaskList from "./components/TaskList";
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href= {logo}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="tailwind">
+      <Header />
+      <div className="TaskList">
+        <TaskList />
+      </div>
     </div>
   );
-}
+};
 
 export default App;

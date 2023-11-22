@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+.TaskList {
+  border-radius: 1px solid #282c34;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  font-size: calc(10px + 2vmin);
+}
