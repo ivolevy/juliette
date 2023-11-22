@@ -79,10 +79,12 @@ export default function Example() {
             imageUrl={person.imageUrl}
             lastSeen={person.lastSeen}
             showModal={toggleModal}
+            modal={modal}
+            closeModal={toggleModal}
           />
         ))}
       </ul>
-      {modal && <Details closeModal={toggleModal} />}
+
     </>
   );
 }

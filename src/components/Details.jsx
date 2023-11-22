@@ -1,5 +1,6 @@
 import { PaperClipIcon } from "@heroicons/react/20/solid";
 import "../styles/Modal.css";
+
 export default function Example(props) {
   return (
     <div className="modal">

@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
+import Details from "./Details";
 
 function Employee(props) {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const toggleModal = () => {
+    setModalOpen(!modalOpen);
+  };
+
   return (
     <li
       key={props.email}
       className="flex justify-between gap-x-6 py-5"
-      onClick={props.showModal}
+      onClick={() => {
+        props.showModal();
+        toggleModal();
+      }}
     >
       <div className="flex min-w-0 gap-x-4">
         <img
@@ -22,20 +32,35 @@ function Employee(props) {
           </p>
         </div>
       </div>
-      <div className="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
-        <p className="text-sm leading-6 text-gray-900">{props.role}</p>
-        {props.lastSeen ? (
-          <p className="mt-1 text-xs leading-5 text-gray-500">
-            Last seen{" "}
-            <time dateTime={props.lastSeenDateTime}>{props.lastSeen}</time>
-          </p>
-        ) : (
-          <div className="mt-1 flex items-center gap-x-1.5">
-            <div className="flex-none rounded-full bg-emerald-500/20 p-1">
-              <div className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+      <div className="w-full flex justify-end items-center"> {/* Alineación de elementos */}
+        <div className="hidden shrink-0 sm:flex sm:flex-col sm:items-end w-full"> {/* Añadir w-full aquí también */}
+          <p className="text-sm leading-6 text-gray-900">{props.role}</p>
+          {props.lastSeen ? (
+            <p className="mt-1 text-xs leading-5 text-gray-500">
+              Last seen{" "}
+              <time dateTime={props.lastSeenDateTime}>{props.lastSeen}</time>
+            </p>
+          ) : (
+            <div className="mt-1 flex items-center gap-x-1.5">
+              <div className="flex-none rounded-full bg-emerald-500/20 p-1">
+                <div className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+              </div>
+              <p className="text-xs leading-5 text-gray-500">Online</p>
             </div>
-            <p className="text-xs leading-5 text-gray-500">Online</p>
-          </div>
+          )}
+        </div>
+      </div>
+      <div>
+        {modalOpen && (
+          <Details
+            closeModal={() => {
+              toggleModal();
+              props.closeModal();
+            }}
+            email={props.email}
+            name={props.name}
+            role={props.role}
+          />
         )}
       </div>
     </li>
