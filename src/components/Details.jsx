@@ -1,11 +1,18 @@
 import { PaperClipIcon } from "@heroicons/react/20/solid";
 import "../styles/Modal.css";
+import { RxCross1 } from "react-icons/rx";
+import { FaCheck } from "react-icons/fa";
 
 export default function Example(props) {
   return (
     <div className="modal">
       <div className="overlay"></div>
-      <div onClick={props.closeModal} className="modal-content">
+      <div className="modal-content">
+        <button onClick={props.closeModal} className="absolute top-7 right-7">
+          <RxCross1 className="h-5 w-5 text-gray-400" />
+        </button>
+        <br />
+        <br />
         <div className="px-4 sm:px-0">
           <h3 className="text-base font-semibold leading-7 text-gray-900">
             Applicant Information
@@ -97,6 +104,25 @@ export default function Example(props) {
                       </a>
                     </div>
                   </li>
+                </ul>
+              </dd>
+            </div>
+            {/* Checklist de objetivos y metas */}
+            <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+              <dt className="text-sm font-medium leading-6 text-gray-900">
+                Goals and Objectives
+              </dt>
+              <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                <ul className="list-disc list-inside">
+                  <li className="flex items-center">
+                    <FaCheck className="h-4 w-4 text-green-500 mr-2" />
+                    Objective 1
+                  </li>
+                  <li className="flex items-center">
+                    <FaCheck className="h-4 w-4 text-green-500 mr-2" />
+                    Objective 2
+                  </li>
+                  {/* Agrega más objetivos aquí */}
                 </ul>
               </dd>
             </div>

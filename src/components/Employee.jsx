@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Details from "./Details";
+import { RxCross1 } from "react-icons/rx";
 
 function Employee(props) {
   const [modalOpen, setModalOpen] = useState(false);
