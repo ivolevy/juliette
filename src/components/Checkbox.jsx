@@ -49,7 +49,7 @@ export default function CheckboxList() {
                   inputProps={{ 'aria-labelledby': labelId }}
                 />
               </ListItemIcon>
-              <ListItemText id={labelId} primary={`Line item ${value + 1}`} />
+              <ListItemText id={labelId} primary={`Objetivo ${value + 1}`} />
             </ListItemButton>
           </ListItem>
         );
